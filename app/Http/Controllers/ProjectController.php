@@ -22,13 +22,14 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::visible()->get();
-        return view('pages.projects.index', compact('projects'));
+        $projects = Project::visible()->latest()->get();
+        $types = Type::all();
+        return view('pages.projects.index', compact('projects','types'));
     }
 
     public function indexForEdit()
     {
-        $projects = Project::all();
+        $projects = Project::latest()->get();
         return view('pages.admin.projects.indexForEdit', compact('projects'));
     }
 
@@ -79,6 +80,21 @@ class ProjectController extends Controller
     {
         return view('pages.projects.show', compact('project'));
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Admin\Project  $project
+     * @return \Illuminate\Http\Response
+     */
+    public function filter(Type $type)
+    {
+        $types = Type::all();
+        $typeSelected = $type;
+        $projects = $type->projects;
+        return view('pages.projects.index', compact('projects','types', 'typeSelected'));
+    }
+
 
     /**
      * Show the form for editing the specified resource.

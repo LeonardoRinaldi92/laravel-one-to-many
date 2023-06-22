@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin\Type;
+use App\Models\Admin\Proje;
 use Illuminate\Http\Request;
 
 class TypeController extends Controller
@@ -46,7 +47,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        
     }
 
     /**

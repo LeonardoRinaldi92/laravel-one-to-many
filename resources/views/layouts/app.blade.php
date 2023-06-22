@@ -33,6 +33,18 @@
                 }
             });
         });
+
+        document.getElementById('select-type').addEventListener('change',function(){
+            let slug = document.getElementById('select-type').value
+            //console.log(window.location.host + '/projects/filter/'+slug)
+            //window.location.hostname + '/projects/filter/' + slug;
+            if(slug == 'home' ) {
+                window.location.href = '/projects';
+            } else if (slug !== '') {
+                window.location.href = '/projects/filter/' + slug;
+            }
+            
+        })
     </script>
 </body>
 </html>

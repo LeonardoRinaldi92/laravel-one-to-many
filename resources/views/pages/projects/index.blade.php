@@ -4,6 +4,18 @@ Portfolio Leonardo Rinaldi | Progetti
 @endsection
 @section('content')
 <div class="container">
+    <div>
+        <select name="type" id="select-type">
+            @if(isset($typeSelected)) 
+                <option value="home">Torna alla Home</option>
+            @else
+                <option value="">scegli</option>
+            @endif
+            @foreach ($types as $type)
+                <option value="{{$type->slug}}" @if(isset($typeSelected) && $typeSelected->id === $type->id) selected @endif>{{$type->name}}</option>
+            @endforeach
+        </select>
+    </div>
     <div class="row">
         @forelse ($projects as $project)
         <div class="col-4 p-3 mt-3">
