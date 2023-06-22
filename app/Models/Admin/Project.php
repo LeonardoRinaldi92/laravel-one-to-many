@@ -18,7 +18,6 @@ class Project extends Model
         'relase_date',
         'type',
         'visibility',
-        'slug'
     ];
 
         /**
@@ -30,5 +29,10 @@ class Project extends Model
     public function scopeVisible($query)
     {
         $query->where('visibility', 1);
+    }
+
+    public function type() 
+    {
+        return $this->belongsTo(Type::class);
     }
 }

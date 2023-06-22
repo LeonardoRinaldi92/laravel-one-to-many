@@ -25,7 +25,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject->short_description = $faker->sentence(10);
             $newProject->image = 'https://picsum.photos/200/300?random='.$i;
             $newProject->relase_date = $faker->dateTimeBetween('-20 week', '+20 week');
-            $newProject->type = $faker->sentence(1);
+            $newProject->type_id= $faker->numberBetween(1, 6);
             $newProject->visibility = true;
             $newProject->save();
         }
