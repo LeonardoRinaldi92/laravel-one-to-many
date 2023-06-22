@@ -52,14 +52,20 @@
                 @enderror
             </div>
 
+
             <div class="form-group">
-                <label for="project-type" class="form-label text-white-50">type</label>
-                <input type="text" required max="255" id="project-type" class="form-control"
-                placeholder="Inserisci i programmi usati" name="type" value="{{ old('type')}}">
+                <label for="project-type_id" class="form-label text-white-50">type</label>
+                <select required name="type_id" id="type_id">
+                    <option value="">scegli un tipo</option>
+                    @foreach ($types as $type)
+                    <option value="{{$type->id}}">{{$type->name}}</option>
+                    @endforeach
+                </select>
                 @error('type')
                     <span style="color: red; text-transform: uppercase">{{$message}}</span>
                 @enderror
             </div>
+
             <div class="form-group">
                 <label for="project-visibility" class="form-label text-white-50">visibilità</label>
                 <div>

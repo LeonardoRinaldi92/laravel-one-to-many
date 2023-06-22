@@ -16,7 +16,7 @@ class Project extends Model
         'short_description',
         'image',
         'relase_date',
-        'type',
+        'type_id',
         'visibility',
     ];
 

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 use App\Models\Admin\Project;
+use App\Models\Admin\Type;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -38,7 +39,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.projects.create');
+        $types = Type::all();
+        return view('pages.admin.projects.create', compact('types'));
     }
 
     /**

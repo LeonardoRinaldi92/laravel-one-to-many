@@ -16,7 +16,7 @@ Portfolio Leonardo Rinaldi | Progetti
             <h3>{{$project['name']}}, <i>{{$project['relase_date']}}</i>
             </h3>
                 <img src="{{asset('storage/'. $project->image)}}" alt="">
-            <h5>{{$project['type']}}</h5>
+            <h5>{{$project->type->name}}</h5>
             <h6><i>{{$project['description']}}</i>
             </h6>
         </div>

@@ -30,7 +30,7 @@ class StoreProjectRequest extends FormRequest
             'short_description' => ['required', 'string', 'max:255'],
             'image' => ['required', 'image'],
             'relase_date' => ['required', 'date'],
-            'type' => ['required', 'string', 'max:255'],
+            'type_id' => ['required', 'int', 'exists:types,id'],
             'slug'=> ['string'],
             'visibility'=>['boolean'],
         ];
@@ -44,7 +44,7 @@ class StoreProjectRequest extends FormRequest
         'short_description' => 'la descrizione BREVE del progetto',
         'image' => 'la foto del progetto',
         'relase_date' => 'la data di creazione del progetto',
-        'type' => 'i programmi usati per il progetto',
+        'type_id' => 'i programmi usati per il progetto',
         'visbility' => 'la visibiltà del progetto'
 
        ];
