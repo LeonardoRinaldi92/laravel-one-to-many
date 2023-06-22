@@ -1,3 +1,4 @@
+
 <div>
     <div class="container-form container m-auto p-5">
         <h1 class="text-center text-white">
@@ -53,18 +54,23 @@
             </div>
 
             <div class="form-group">
-                <label for="project-type" class="form-label">type</label>
-                <input type="text" required max="255" id="project-type" class="form-control"
-                placeholder="Inserisci i programmi usati" name="type" value="{{ old('type') ?? $project->type}}">
-                @error('type')
+                <label for="project-type_id" class="form-label text-white-50">type</label>
+                <select required name="type_id" id="type_id">
+                    <option value="">scegli un tipo</option>
+                    @foreach ($types as $type)
+                    <option value="{{$type->id}}" {{ old('type_id',$project->type_id) == $type->id ? 'selected' : ''}}>{{$type->name}}</option>
+                    @endforeach
+                </select>
+                @error('type_id')
                     <span style="color: red; text-transform: uppercase">{{$message}}</span>
                 @enderror
             </div>
+
             <div class="form-group">
                 <label for="project-visibility" class="form-label text-white-50">visibilità</label>
                 <div>
-                    <input type="radio" name="visibility" value="0"><span class="text-white-50">privato</span>
-                    <input type="radio" name="visibility" value="1"> <span class="text-white-50">publico</span>
+                    <input type="radio" name="visibility" value="0" checked="{{ old('visibility',$project->visibility) == 0 ? 'checked' : ''}}"><span class="text-white-50">privato</span>
+                    <input type="radio" name="visibility" value="1" checked="{{ old('visibility',$project->visibility) == 1 ? ' checked' : ''}}"><span class="text-white-50">publico</span>
                 </div>
             </div>
             <button type="submit" class="my-3 btn btn-primary">Modifica Proggetto </button>
