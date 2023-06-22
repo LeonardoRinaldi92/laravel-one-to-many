@@ -58,10 +58,10 @@
                 <select required name="type_id" id="type_id">
                     <option value="">scegli un tipo</option>
                     @foreach ($types as $type)
-                    <option value="{{$type->id}}">{{$type->name}}</option>
+                    <option value="{{$type->id}}" {{ old('type_id') == $type->id ? 'selected' : ''}}>{{$type->name}}</option>
                     @endforeach
                 </select>
-                @error('type')
+                @error('type_id')
                     <span style="color: red; text-transform: uppercase">{{$message}}</span>
                 @enderror
             </div>

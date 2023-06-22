@@ -27,10 +27,11 @@ Portfolio Leonardo Rinaldi | Modifica/Elimina Progetti
                         </a>
                     </td>
                     <td class="text-center text">
-                        <form action="{{route ('admin.projects.destroy', $project)}}" method="POST" id="delete-form">
+                        <form action="{{ route('admin.projects.destroy', $project) }}" method="POST" class="delete-form">
                             @csrf
                             @method('DELETE')
-                        <button type="submit" ><i class="fa-solid fa-trash-can"></i></button>
+                            <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
                     </td>
                 </tr>
                 @empty
